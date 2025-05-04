@@ -1,0 +1,30 @@
+name: DAG CI Basic Check
+
+on:
+  push:
+    paths:
+      - 'dags/**'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'dags/**'
+
+jobs:
+  validate-dags:
+    runs-on: ubuntu-latest
+    name: Basic DAG Syntax Check
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Check Python syntax in DAGs
+        run: |
+          echo "Validating Python files in dags/ directory..."
+          python -m compileall dags/
