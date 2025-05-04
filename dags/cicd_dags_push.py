@@ -16,7 +16,7 @@ default_args = {
 
 # Defining the DAG
 dag = DAG(
-    'feature_branch_test',  # The name of the DAG
+    'correct_additional_dag',  # The name of the DAG
     default_args=default_args,
     description='A simple DAG that prints current date',
     schedule_interval='@daily',  # Run once a day
