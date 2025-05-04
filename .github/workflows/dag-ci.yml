@@ -6,6 +6,7 @@ on:
       - 'dags/**'
     branches:
       - main
+      - feature/airflow_dags_validation
   pull_request:
     paths:
       - 'dags/**'

@@ -16,7 +16,7 @@ default_args = {
 
 # Defining the DAG
 dag = DAG(
-    'cicd_dag_run_actions  # The name of the DAG
+    'testing_workflow_feature',  # The name of the DAG
     default_args=default_args,
     description='A simple DAG that prints current date',
     schedule_interval='@daily',  # Run once a day
@@ -25,7 +25,7 @@ dag = DAG(
 )
 
 # Defining the task that will execute the print_current_date function
-print_task = PythonOperato(
+print_task = PythonOperator(
     task_id='print_current_date_task',  # Task name
     python_callable=print_current_date,  # Function to be executed
     dag=dag,  # DAG to which the task belongs
